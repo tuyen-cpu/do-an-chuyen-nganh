@@ -1,0 +1,17 @@
+@import '../../../scss/variable';
+@import '../../../scss/mixin';
+
+.haeder {
+    @include flex-center;
+    height: $header-height;
+}
+
+.nav{
+    &__logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 124px;
+        height: 40px;
+    }
+}
