@@ -1,0 +1,18 @@
+<header class="header">
+    <nav class="nav flex justify-content-evenly align-items-center">
+        <div class="nav__logo flex justify-content-center align-items-center cursor-pointer">
+            <img src="assets/image/logo.svg" class="nav__logo" />
+        </div>
+        <ul class="nav__menu list-none flex flex-row justify-content-between align-items-center gap-6">
+            <li class="nav__item flex flex-row justify-content-center align-items-center cursor-pointer select-none" *ngFor="let item of menu">
+                <img src="assets/image/{{ item.img }}" *ngIf="item.img" class="nav__logo--sub m-2" />
+                <a class="nav__link">{{ item.title }}</a>
+            </li>
+        </ul>
+        <ul class="nav__menu list-none flex flex-row justify-content-between align-items-center gap-4">
+            <li class="nav__item flex flex-row justify-content-center align-items-center cursor-pointer select-none" *ngFor="let item of menuSub">
+                <a class="nav__link"> <fa-icon [icon]="item.icon"></fa-icon></a>
+            </li>
+        </ul>
+    </nav>
+</header>

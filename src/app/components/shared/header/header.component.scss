@@ -1,0 +1,34 @@
+@import '../../../scss/variable';
+
+.header {
+    // @include flex-center;
+    border-bottom: 1px solid rgba(192, 194, 203, 0.5);
+    box-shadow: 0 1px 5px rgb(0 0 0 / 16%);
+    z-index: 1000;
+}
+
+.nav {
+    height: $header-height;
+    margin: 0 8rem;
+
+    &__logo {
+        width: 124px;
+
+        &--sub {
+            width: 31px;
+            height: 31px;
+        }
+    }
+    
+    &__link{
+        color: $text-color-light;
+        transition: 0.2s;
+        font-family: $font-family-main;
+        font-size: 1rem;
+        font-weight: $font-medium;
+
+        &:hover{
+            color:$primary-color;
+        }
+    }
+}
