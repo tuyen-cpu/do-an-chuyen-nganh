@@ -4,20 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+//primeNg
+import { ButtonModule } from 'primeng/button';
 
 //awesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DetailProductComponent } from './components/detail-product/detail-product.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule
-  ],
+  declarations: [AppComponent, DetailProductComponent],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, ButtonModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
