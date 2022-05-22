@@ -1,3 +1,13 @@
 .product-detail {
     font-family: Montserrat, sans-serif;
+    .product-detail-right {
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+        .product-price {
+            color: $main-color;
+        }
+    }
 }
