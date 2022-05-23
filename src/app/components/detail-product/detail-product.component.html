@@ -1,8 +1,15 @@
 <section class="product-detail">
     <div class="grid align-items-stretch">
-        <div class="col-7 align-items-center justify-content-center bg-blue-500 font-bold text-white border-round" style="min-width: 200px; min-height: 50px">1</div>
+        <div class="col-7 align-items-center justify-content-center " style="min-width: 200px; min-height: 50px">
+            <div class="grid">
+                <div class="col-6" *ngFor="let img of listImg">
+                    <div class=""><img [src]="img" alt=""></div>
+                </div>
+
+            </div>
+        </div>
         <div class="col-5 align-items-center justify-content-center">
-            <div class="product-detail-right">
+            <div class="sticky top-0 product-detail-right pl-4 ">
                 <h3 class="product-title">
                     Áo Polo Nam OriginalBear Chất Vải CVC
                 </h3>
@@ -12,21 +19,19 @@
                 <div class="product-size">
                     <div class="product-size__title">Size:</div>
                     <ul class="product-size-list">
-                        <li class="product-size-item inline-block"><button label="S" pButton pRipple type="button" class="p-button-rounded p-button-outlined"></button></li>
-                        <li class="product-size-item inline-block"><button label="S" pButton pRipple type="button" class="p-button-rounded p-button-outlined"></button></li>
-                        <li class="product-size-item inline-block"><button label="S" pButton pRipple type="button" class="p-button-rounded p-button-outlined"></button></li>
-                        <li class="product-size-item inline-block"><button label="S" pButton pRipple type="button" class="p-button-rounded p-button-outlined"></button></li>
-                        <li class="product-size-item inline-block"><button label="S" pButton pRipple type="button" class="p-button-rounded p-button-outlined"></button></li>
+                        <li class="product-size-item inline-block" *ngFor="let size of sizes"><label [class.p-button-outlined]="size.name !== selectedSize" [label]="size.name" pButton pRipple type="button" class="label-size"><input  [(ngModel)]="selectedSize" type="radio" name="size" [value]="size.name" style="display:none"></label></li>
                     </ul>
-                    <div class="product-size-recommend">Bảng size</div>
+                    <div #sizeElement class="product-size-recommend" (click)="onToggleImage(sizeElement)"><span>Bảng size</span>
+                    </div>
+                    <p-image class="size-board" src="../../../assets/image/size.jpeg" alt="Image" width="250" [preview]="true"></p-image>
                 </div>
                 <div class="btn-action">
-                    <button pButton pRipple type="button" icon="pi pi-heart" class="p-button-outlined p-button-secondary">
+                    <button pButton pRipple type="button" icon="pi pi-heart" class="p-button-outlined p-button-secondary btn-heart">
                     </button>
-                    <button pButton pRipple type="button" label="Thêm vào giỏ" class="p-button-warning"></button>
+                    <button pButton pRipple type="button" label="Thêm vào giỏ" class="p-button-warning btn-cart"></button>
                 </div>
-                <div class="product-info">
-                    <h2 class="product-info-title">Thông tin</h2>
+                <div class="product-info mt-4">
+                    <h4 class="product-info-title">Thông tin</h4>
                     <div class="product-info-field">
                         <span class="product-info-key">Chất liệu:</span>
                         <span class="product-info-value">Cá sấu CVC</span>

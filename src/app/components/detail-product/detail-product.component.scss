@@ -1,3 +1,95 @@
+@import '../../scss/variable';
 .product-detail {
+    padding: 20px 50px 0px;
     font-family: Montserrat, sans-serif;
+    .product-detail-right {
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            padding-bottom: 12px;
+        }
+        .product-price {
+            color: $primary-color;
+            font-weight: $font-semibold;
+            padding-bottom: 12px;
+            font-size: 20px;
+        }
+        .product-size {
+            padding-bottom: 12px;
+            .product-size__title {
+                color: $text-color-light;
+                font-weight: $font-medium;
+                padding-bottom: 4px;
+            }
+            .product-size-list {
+                .product-size-item {
+                    +.product-size-item {
+                        margin-left: 12px;
+                    }
+                }
+                .product-size-item {
+                    .p-button {
+                        background: $primary-color;
+                        border: none;
+                        font-size: 14px;
+                    }
+                    .p-button-outlined {
+                        background-color: #f5f5f5;
+                        color: #212121;
+                        border: none;
+                    }
+                }
+            }
+            .product-size-recommend {
+                margin-top: 4px;
+                span {
+                    text-decoration: underline;
+                    cursor: pointer;
+                    user-select: none;
+                    transition: all 0.2s ease;
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+                &.is-show {
+                    ~.size-board {
+                        display: block;
+                    }
+                }
+            }
+            .size-board {
+                display: none;
+            }
+        }
+        .btn-action {
+            display: flex;
+            padding-bottom: 12px;
+            .btn-heart {}
+            .btn-cart {
+                flex: 1;
+                margin-left: 8px;
+            }
+        }
+        .product-info {
+            .product-info-title {
+                color: $text-color-light;
+                font-weight: $font-medium;
+                padding-bottom: 8px;
+            }
+            .product-info-field {
+                display: flex;
+                font-size: small;
+                font-weight: $font-medium;
+                color: var( --text-color-secondary);
+                padding-bottom: 4px;
+                .product-info-key {
+                    flex: 25;
+                }
+                .product-info-value {
+                    flex: 75;
+                }
+            }
+        }
+    }
 }
