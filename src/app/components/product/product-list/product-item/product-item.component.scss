@@ -1,0 +1,117 @@
+@import '../../../../scss/variable.scss';
+.product-link {
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 5px;
+    display: block;
+    box-shadow: 2px 1px 1px rgba(140, 140, 140, 0.2);
+    min-height: 320px;
+    &:hover .product-img {
+        opacity: 0.9;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+.product-item {
+    .cart-icon {
+        font-size: 24px;
+        color: $text-color-dark;
+        background-color: rgb(188, 253, 255);
+        padding: 6px;
+        border-radius: 50%;
+        margin-right: 6px;
+        margin-top: 6px;
+    }
+}
+
+.product-content {
+    padding: 12px 0;
+    .product-name {
+        font-weight: $font-semibold;
+        font-size: 16px;
+        color: $text-color-dark;
+        margin: 4px 6px;
+    }
+    .product-price {
+        font-size: 12px;
+        font-weight: $font-medium;
+        color: $text-color-dark;
+        margin: 0 6px;
+    }
+}
+
+.product-detail-name {
+    font-weight: $font-semibold;
+    font-size: 24px;
+    color: $text-color-dark;
+    position: relative;
+    padding: 16px 0;
+}
+
+.product-detail-price {
+    color: #f4b301;
+    font-weight: $font-semibold;
+    font-size: 18px;
+    position: relative;
+    padding: 16px 0;
+}
+
+.product-detail-name::after,
+.product-detail-price::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-bottom: 2px solid #d4d6dc;
+    left: 0;
+    bottom: 0;
+}
+
+.describe {
+    list-style-type: none;
+    margin: 20px 0;
+    label {
+        color: $text-color-dark;
+        font-weight: $font-bold;
+        font-size: 15px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        display: block;
+    }
+    li {
+        font-size: 13px;
+        color: $text-color-light;
+        font-weight: $font-regular;
+        margin: 6px 0;
+        i {
+            margin-right: 6px;
+            color: $text-color-light;
+            opacity: 0.5;
+        }
+    }
+}
+
+.size-list {
+    .size-item {
+        padding: 4px;
+        border: 1px solid $text-color-light;
+        background-color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        border-radius: 10px;
+        color: $text-color-light;
+        margin-right: 10px;
+        min-width: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+// .size-quantity {
+//     margin: 12px 0;
+// }
+.btn-add {
+    margin-top: 36px;
+}
+
+div.active {
+    color: #fff;
+}
