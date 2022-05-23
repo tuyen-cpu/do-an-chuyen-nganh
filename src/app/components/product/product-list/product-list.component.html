@@ -1,0 +1,15 @@
+<div class="product-list">
+    <div class="grid">
+        <div class="lg:col-10 lg:col-offset-1 col-12 col-offset-0">
+            <img src="../../../../assets/image/banner-product-list.jpeg" alt="" class="banner" />
+        </div>
+    </div>
+    <div class="grid">
+        <div class="lg:col-10 lg:col-offset-1 col-12 col-offset-0">
+            <h3 class="product-head">Tất cả sản phẩm</h3>
+            <div class="grid product-list">
+                <app-product-item class="col-3 product-item" *ngFor="let product of products" [product]="product"></app-product-item>
+            </div>
+        </div>
+    </div>
+</div>

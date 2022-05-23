@@ -1,0 +1,52 @@
+<a [routerLink]="['/']" class="product-link">
+    <div class="product-item">
+        <div class="product-img">
+            <img src="assets/image/{{ product.img[0].source }}" alt="" />
+        </div>
+
+        <div class="flex justify-content-center align-items-start">
+            <div class="product-content flex-grow-1">
+                <h4 class="product-name">{{ product.name }}</h4>
+                <p class="product-price">{{ product.price | number }}đ</p>
+            </div>
+            <div>
+                <i (click)="showModalDialog()" class="cart-icon pi pi-shopping-cart"></i>
+            </div>
+        </div>
+    </div>
+</a>
+
+<p-dialog [(visible)]="displayModal" [dismissableMask]="true" [modal]="true" [style]="{ width: '60vw', height: '90vh' }" [draggable]="false" [resizable]="false">
+    <div class="grid">
+        <div class="col-6">
+            <p-carousel [value]="product.img" verticalViewPortHeight="60vh" orientation="vertical">
+                <ng-template let-img pTemplate="item">
+                    <img src="assets/image/{{ img.source }}" alt="" />
+                </ng-template>
+            </p-carousel>
+        </div>
+
+        <div class="col-6">
+            <h3 class="product-detail-name">{{ product.name }}</h3>
+
+            <p class="product-detail-price">{{ product.price | number }}đ</p>
+
+            <ul class="describe">
+                <label for="">Vì sao bạn nên chọn</label>
+                <li><i class="pi pi-tags"></i>Chất vải CVC thoáng mát co dãn 4 chiều tạo sự thoải mái</li>
+                <li><i class="pi pi-tag"></i>Công nghệ xử lý vải hàng đầu, nhanh khô, chống nhăn khi giặt</li>
+                <li><i class="pi pi-car"></i>Miễn phí giao hàng cho đơn hàng trên 500k</li>
+                <li><i class="pi pi-box"> </i>Đổi trả miễn phí trong 30 ngày nếu không hài lòng</li>
+            </ul>
+            <label for="" class="">Size:</label>
+            <div class="size-list flex">
+                <div (click)="onChooseSize(size.id)" class="size-item" *ngFor="let size of product.size">
+                    {{ size.sizeName }}
+                </div>
+            </div>
+            <p *ngIf="sizeQuantity" class="size-quantity">còn {{ sizeQuantity }} sản phẩm</p>
+
+            <button (click)="addToCart()" pButton pRipple type="button" style="width: 100%" label="Thêm vào giỏ" class="btn-add p-button-warning"></button>
+        </div>
+    </div>
+</p-dialog>
