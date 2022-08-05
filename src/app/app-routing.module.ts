@@ -1,10 +1,29 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { TesstComponent } from './components/tesst/tesst.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+    { path: '', component: TesstComponent },
+    {
+        path: 'product',
+        loadChildren: () => import(`./components/product/product.module`).then((module) => module.ProductModule),
+    },
+    {
+        path: 'cart',
+        loadChildren: () => import(`./components/cart/cart.module`).then((module) => module.CartModule),
+    },
+    {
+        path: 'checkout',
+        loadChildren: () => import(`./components/checkout/checkout.module`).then((module) => module.CheckoutModule),
+    },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, {
+            preloadingStrategy: PreloadAllModules,
+        }),
+    ],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
