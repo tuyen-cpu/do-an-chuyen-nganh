@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+    standalone: true,
+    selector: 'app-product-detail',
+    templateUrl: './product-detail.component.html',
+    styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }
