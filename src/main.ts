@@ -6,9 +6,11 @@ import { bootstrapApplication, BrowserModule } from '@angular/platform-browser';
 // import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from './environments/environment';
-import { HeaderComponent } from './app/components/header/header.component';
 import { APP_ROUTES } from './app/app-routing';
-import { ButtonModule } from 'primeng/button';
+
+//primeng
+import { TableModule } from 'primeng/table';
+import { HttpClientModule } from '@angular/common/http';
 if (environment.production) {
     enableProdMode();
 }
@@ -19,6 +21,7 @@ bootstrapApplication(AppComponent, {
         // {provide:BACKEND_URL,useValue:"abc.com"},
         importProvidersFrom(
             BrowserAnimationsModule,
+            HttpClientModule,
             RouterModule.forRoot(APP_ROUTES, {
                 preloadingStrategy: PreloadAllModules,
             }),
