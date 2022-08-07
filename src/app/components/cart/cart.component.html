@@ -1,1 +1,51 @@
-<p>cart works!</p>
+<div class="cart-wrapper grid justify-content-center px-8">
+    <h2 class="cart-title col-12 mt-4 mb-2">Giỏ hàng</h2>
+    <div class="col-8">
+        <p-table [value]="products" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Summary</th>
+                    <th>Delete</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <th><img class="image-product" src="https://bizweb.sapocdn.net/thumb/medium/100/369/010/products/3-7e0e1d20-b2be-4083-8d59-52c6d96a6547.jpg?v=1657986742137" alt=""></th>
+                    <td>{{product.name}}</td>
+                    <td>
+                        <p-inputNumber [(ngModel)]="product.quantity" [showButtons]="true" buttonLayout="horizontal" [step]="1" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [min]="0" [max]="100">
+                        </p-inputNumber>
+
+                    </td>
+                    <td>{{product.quantity+product.price |currency:'VND'}}</td>
+                    <td>
+                        <button pButton pRipple (click)="deleteItem(product.id)" type="button" icon="pi pi-trash" class="p-button-rounded p-button-text text-color"></button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    <div class="col-4">
+        <p-table styleClass="p-datatable-gridlines table-total" responsiveLayout="scroll">
+
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    <span>Total</span>
+                    <span>{{total|currency:'VND'}}</span>
+                </div>
+
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-center">
+                    <a routerLink="/checkout" pButton pRipple type="button" label="Checkout" class="p-button-rounded btn-checkout"></a>
+
+                </div>
+
+            </ng-template>
+        </p-table>
+    </div>
+
+</div>

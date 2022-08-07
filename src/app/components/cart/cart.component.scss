@@ -1,0 +1,48 @@
+@import "../../../scss/utils/variable";
+@font-face {
+    font-family: "SVN-Veneer";
+    src: local("SVN-Veneer"), url(../../../assets/SVN-Veneer.ttf) format("truetype");
+}
+
+.cart-wrapper {
+    .cart-title {
+        font-family: 'SVN-Veneer';
+        font-weight: 100;
+        color: $text-color;
+        font-size: xx-large;
+    }
+    .image-product {
+        width: 150px;
+    }
+    .table-total {
+        .p-datatable-header {
+            background-color: #fff;
+        }
+        .p-datatable-footer {
+            background-color: #fafafa;
+            border-top: #eee solid 1px;
+            padding: 25px;
+        }
+        .btn-checkout {
+            display: inline-block;
+            border: 1px solid transparent;
+            border-color: #000000;
+            background: #000000;
+            height: 45px;
+            padding: 0 30px;
+            border-radius: 50px;
+            font-size: 14px;
+            line-height: 45px;
+            transition: all .3s;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: #fff;
+            font-size: $text-medium;
+            &:hover {
+                background: #fff;
+                color: #000000;
+            }
+        }
+    }
+}

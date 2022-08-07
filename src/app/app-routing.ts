@@ -6,7 +6,6 @@ export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
     {
         path: 'product',
-
         loadChildren: () => import('./components/product/product-routes').then(({ ProductRoutes }) => ProductRoutes),
     },
     {
