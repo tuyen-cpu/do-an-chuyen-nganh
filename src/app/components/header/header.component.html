@@ -1,1 +1,19 @@
-<p-menubar [model]="items"></p-menubar>
+<p-menubar [model]="items" height="100">
+    <ng-template pTemplate="start">
+        <a [routerLink]="['/']">
+            <img src="assets/images/logo.png" height="70" class="cursor-pointer" />
+        </a>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <span class="p-input-icon-right">
+            <input type="text" pInputText placeholder="Tìm kiếm..." [(ngModel)]="valueSearch" />
+            <i class="pi pi-search" (click)="onSearch()"></i>
+        </span>
+        <a [routerLink]="['/']">
+            <i class="pi pi-user"></i>
+        </a>
+        <a [routerLink]="['/']">
+            <i class="pi pi-shopping-cart"></i>
+        </a>
+    </ng-template>
+</p-menubar>
