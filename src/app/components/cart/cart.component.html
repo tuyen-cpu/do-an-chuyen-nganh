@@ -16,11 +16,11 @@
                     <th><img class="image-product" src="https://bizweb.sapocdn.net/thumb/medium/100/369/010/products/3-7e0e1d20-b2be-4083-8d59-52c6d96a6547.jpg?v=1657986742137" alt=""></th>
                     <td>{{product.name}}</td>
                     <td>
-                        <p-inputNumber [(ngModel)]="product.quantity" [showButtons]="true" buttonLayout="horizontal" [step]="1" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [min]="0" [max]="100">
+                        <p-inputNumber class="quantity-product" (onInput)="changeQuantity()" [(ngModel)]="product.quantity" [showButtons]="true" buttonLayout="horizontal" [step]="1" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" [min]="1" [max]="100">
                         </p-inputNumber>
 
                     </td>
-                    <td>{{product.quantity+product.price |currency:'VND'}}</td>
+                    <td>{{product.quantity*product.price |currency:'VND'}}</td>
                     <td>
                         <button pButton pRipple (click)="deleteItem(product.id)" type="button" icon="pi pi-trash" class="p-button-rounded p-button-text text-color"></button></td>
                 </tr>
