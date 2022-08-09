@@ -56,6 +56,7 @@
                             "node_modules/primeng/resources/primeng.min.css",
                             "node_modules/primeflex/primeflex.min.css"
                         ],
+
                         "scripts": []
                     },
                     "configurations": {
