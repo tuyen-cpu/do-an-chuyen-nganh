@@ -1,1 +1,15 @@
-<p>Product list: {{userService.user.name}}</p>
+<div class="flex flex-column justify-content-between align-items-center">
+    <ul class="grid grid-nogutter p-0 m-0 list-none product__list">
+        <li class="relative col-3 py-0 px-3 cursor-pointer product__item" *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+            <div class="flex flex-column justify-content-between align-items-center mb-5">
+                <img src="assets/images/{{ product.urlImage }}" class="product__image w-full" />
+                <a class="product__name">{{ product.name }}</a>
+                <p class="mb-4 product__price">{{ product.price }}</p>
+                <div class="flex flex-row ml-3 absolute left-0">
+                    <p class="product__tag">Best seller</p>
+                    <p class="product__tag">Comming soon</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
