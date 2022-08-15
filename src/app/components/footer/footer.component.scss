@@ -1,0 +1,40 @@
+@import '../../../scss/utils/variable.scss';
+.support {
+    background-color: $border-color-dark;
+    padding: 25px;
+    font-size: $text-small;
+    i {
+        color: $text-color-white;
+        font-size: $text-small;
+        padding: 6px;
+        background-color: $border-color-black;
+        border-radius: 50%;
+    }
+    a {
+        color: rgb(255, 0, 0);
+        cursor: pointer;
+    }
+}
+.footer {
+    font-size: $text-mediumer;
+    padding: 40px 15px;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        li {
+            i {
+                background-color: $bg-color-white;
+                color: $text-color;
+                padding: 6px;
+                border-radius: 50%;
+                border: 1px solid $text-color;
+                font-size: $text-mediumer;
+                margin: 0 10px;
+            }
+        }
+    }
+    img {
+        margin-top: 10px;
+        width: 80%;
+    }
+}

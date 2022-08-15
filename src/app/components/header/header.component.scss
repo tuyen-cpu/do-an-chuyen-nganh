@@ -1,0 +1,47 @@
+@import '../../../scss/utils/variable.scss';
+
+:host::ng-deep {
+    .p-menubar.p-component {
+        height: 100px;
+    }
+
+    .p-element {
+        margin: 0 auto;
+        .p-menuitem-text {
+            color: $text-color-black !important;
+        }
+        .p-menubar-root-list {
+            font-size: $text-small;
+            font-weight: 700;
+            text-transform: uppercase;
+            .p-menuitem-link {
+                &:hover {
+                    border-bottom: 1px solid;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
+
+    .p-inputtext {
+        height: 46px;
+        font-size: $text-tiny;
+    }
+    .p-menubar-end {
+        padding-right: 15px;
+        i {
+            color: $text-color-black;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .pi-search {
+            font-size: $text-tiny;
+            margin-right: 6px;
+        }
+        .pi-user,
+        .pi-shopping-cart {
+            font-size: $text-medium;
+            margin-left: 15px;
+        }
+    }
+}

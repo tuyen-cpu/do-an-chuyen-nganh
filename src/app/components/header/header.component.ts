@@ -1,15 +1,20 @@
 import { MenubarModule } from 'primeng/menubar';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+
+import { InputTextModule } from 'primeng/inputtext';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 @Component({
     standalone: true,
-    imports: [MenubarModule],
+    imports: [CommonModule, MenubarModule, InputTextModule, FormsModule],
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
     items: MenuItem[];
+    valueSearch: string = '';
     constructor() {}
 
     ngOnInit(): void {
@@ -20,26 +25,13 @@ export class HeaderComponent implements OnInit {
                 routerLink: ['/'],
             },
             {
-                label: 'Product',
-                items: [
-                    {
-                        label: 'id',
-                        icon: 'pi pi-fw pi-plus',
-                        routerLink: 'product/id',
-                    },
-                ],
+                label: 'Shop',
+
                 routerLink: 'product',
             },
-            {
-                label: 'Cart',
-                icon: 'pi pi-shopping-cart',
-                routerLink: 'cart',
-            },
-            {
-                label: 'Checkout',
-                icon: 'pi pi-credit-card',
-                routerLink: 'checkout',
-            },
         ];
+    }
+    onSearch() {
+        console.log(this.valueSearch);
     }
 }
