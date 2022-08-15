@@ -1,0 +1,136 @@
+@import "../../../scss/utils/variable";
+$border: 1px solid #ced4da;
+$border-bottom: 1px solid #e1e1e1;
+$color-btn:#357ebd;
+.checkout-wrapper {
+    font-size: $text-small;
+    .input-custom {
+        padding: 0.75rem 0.5rem;
+        &:focus {
+            border-color: #66afe9;
+            box-shadow: 0 0 0 1px #66afe9;
+        }
+    }
+    .info-title {
+        font-size: $text-large;
+        font-weight: 600;
+        margin: 0 0 12px 0;
+    }
+    .message-error {
+        font-size: $text-small;
+    }
+    .payment-wrapper {
+        border: $border;
+        border-radius: 5px;
+        color: #545454;
+        .payment-option {
+            .p-radiobutton-box {
+                box-shadow: none;
+                .p-radiobutton-icon {
+                    width: 8px;
+                    height: 8px;
+                }
+            }
+            &:not(:first-child) {
+                border-top: $border;
+            }
+            .payment-icon {
+                &--paypal {
+                    background: url(../../../assets/img/paypal-logo.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+                &--cash {
+                    color: #1990c6;
+                    font-size: 20px;
+                }
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                width: 52px;
+                height: 28px;
+                transition: opacity .5s cubic-bezier(.3, 0, 0, 1);
+                backface-visibility: hidden;
+                font-size: inherit;
+                transform: translate(0, 0);
+            }
+        }
+    }
+    .sidebar {
+        background-color: #fafafa;
+        border-left: #e1e1e1 solid 1px;
+        &__title {
+            border-bottom: $border-bottom;
+        }
+        .product-list {
+            .product-item {
+                .img-wrapper {
+                    width: 50px;
+                    height: 50px;
+                    .quantity {
+                        font-size: .78em;
+                        white-space: nowrap;
+                        padding: 0 0.62em;
+                        border-radius: 2em;
+                        background-color: #2a9dcc;
+                        color: #fff;
+                        position: absolute;
+                        right: -0.9em;
+                        top: -0.55em;
+                        z-index: 3;
+                        box-sizing: border-box;
+                        min-width: 1.75em;
+                        height: 1.75em;
+                        text-align: center;
+                        line-height: 1.75em;
+                    }
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
+                        border-radius: 8px;
+                        border: 1px rgba(0, 0, 0, .1) solid;
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+        .voucher-wrapper {
+            border-bottom: $border-bottom;
+        }
+        .fee-wrapper {
+            color: $text-color-light;
+            border-bottom: $border-bottom;
+        }
+        .total-wrapper {
+            color: $text-color-light;
+            font-size: $text-medium;
+            .total-value {
+                color: #2a9dcc;
+            }
+        }
+        .btn-action {
+            .btn-checkout {
+                padding: 0.8rem 1.3rem;
+                &:hover {
+                    filter: grayscale(40%);
+                }
+            }
+            &:hover {
+                .back-icon {
+                    transform: translateX(-3px);
+                }
+            }
+            .back-cart {
+                color: #2a9dcc;
+                .back-icon {
+                    transition: all .2s ease-out;
+                }
+            }
+        }
+    }
+}
