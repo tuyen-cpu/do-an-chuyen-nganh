@@ -1,3 +1,4 @@
+import { ProvincesApiService } from './services/provinces-api.service';
 import { HomeComponent } from './components/home/home.component';
 
 import { Routes } from '@angular/router';
@@ -16,5 +17,6 @@ export const APP_ROUTES: Routes = [
         title: 'CheckoutPage',
         path: 'checkout',
         loadComponent: () => import(`./components/checkout/checkout.component`).then((c) => c.CheckoutComponent),
+        providers: [ProvincesApiService],
     },
 ];

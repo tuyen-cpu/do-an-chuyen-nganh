@@ -37,7 +37,6 @@ export class CartComponent implements OnInit {
     deleteItem(id: number) {
         this.products = this.products.filter((product) => product.id !== id);
         this.getTotal();
-        console.log(this.products);
     }
     changeQuantity() {
         this.getTotal();

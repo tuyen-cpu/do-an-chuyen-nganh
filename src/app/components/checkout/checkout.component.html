@@ -1,3 +1,194 @@
-<div class="">
+<div class="checkout-wrapper grid justify-content-center">
+    <div class="col-8 grid p-5">
+        <div class="col-6 px-3">
+            <h4 class="info-title">Information delivery</h4>
+            <form class="grid" [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+                <div class="col-12">
 
+                    <input id="email" placeholder="Email" formControlName="email" [class]="email.invalid?'ng-invalid ng-dirty w-full input-custom':'w-full input-custom'" pInputText />
+                    <div class="mt-1" *ngIf="email.invalid && email.dirty &&email.touched" id="email-help">
+                        <small class="p-error message-error" [hidden]="!email.errors.required">
+                  Email is required.
+                </small>
+                        <small class="p-error message-error" [hidden]="!email.errors.email">
+                  Email is invalid.
+                </small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input id="name" placeholder="Name" formControlName="name" [class]="name.invalid?'ng-invalid ng-dirty w-full input-custom':'w-full input-custom'" pInputText />
+                    <div class="mt-1" *ngIf="name.invalid && name.dirty &&name.touched" id="name-help">
+                        <small class="p-error message-error" [hidden]="!name.errors.required">
+                    Name is required.
+                  </small>
+                        <small class="p-error message-error" [hidden]="!name.errors.minlength">
+                   Min length of name is 3.
+                 </small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input id="phone" placeholder="Phone number" formControlName="phoneNum" [class]="phoneNum.invalid?'ng-invalid ng-dirty w-full input-custom':'w-full input-custom'" pInputText />
+                    <div class="mt-1" *ngIf="phoneNum.invalid && phoneNum.dirty &&phoneNum.touched" id="phoneNum-help">
+                        <small class="p-error message-error" [hidden]="!phoneNum.errors.required">
+                     Phone number is required.
+                  </small>
+                        <small class="p-error message-error" [hidden]="!phoneNum.errors.pattern">
+                    Phone number is invalid.
+                  </small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input id="phone" placeholder="Street" formControlName="street" [class]="street.invalid?'ng-invalid ng-dirty w-full input-custom':'w-full input-custom'" pInputText />
+                    <div class="mt-1" *ngIf="street.invalid && street.dirty &&street.touched" id="phoneNum-help">
+                        <small class="p-error message-error" [hidden]="!street.errors.required">
+                          Street number is required.
+                    </small>
+                        <small class="p-error message-error" [hidden]="!street.errors.minlength">
+                        Street number is invalid.
+                      </small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p-dropdown (onChange)="onChangeProvince($event)" [style]="{'minWidth':'100%'}" [options]="provinces" formControlName="province" placeholder="Select a City" optionLabel="name" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="col-12">
+                    <p-dropdown (onChange)="onChangeDistrict($event)" [style]="{'minWidth':'100%'}" [options]="districts" formControlName="district" placeholder="Select a district" optionLabel="name" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="col-12">
+                    <p-dropdown [style]="{'minWidth':'100%'}" [options]="wards" formControlName="ward" placeholder="Select a ward" optionLabel="name" [showClear]="true"></p-dropdown>
+                </div>
+                <div class="col-12">
+                    <textarea class="input-custom w-full" placeholder="Notes (Option)" rows="5" cols="30" formControlName="notes" pInputTextarea></textarea>
+                </div>
+                <!-- <button type="submit" [disabled]="!infoForm.valid">Submit</button> -->
+            </form>
+
+
+        </div>
+        <div class="col-6 px-3">
+            <h4 class="info-title">Payment</h4>
+            <div class="grid">
+                <div class="col-12">
+                    <div class="payment-wrapper">
+                        <div class="payment-option relative flex align-items-center justify-content-between">
+                            <div class="w-full flex px-2 py-1">
+                                <p-radioButton name="city" value="PAYPAL" [(ngModel)]="payment" inputId="paypal"></p-radioButton>
+                                <label for="paypal" class="ml-2 w-full py-2 cursor-pointer">Pay by Paypal
+                                  <span class="absolute right-0">
+                                    <i class="payment-icon payment-icon--paypal"></i>
+                                  </span>
+                              </label>
+                            </div>
+                        </div>
+                        <div class="payment-option relative flex align-items-center justify-content-between">
+                            <div class="w-full flex px-2 py-1">
+                                <p-radioButton name="city" value="CASH" [(ngModel)]="payment" checked inputId="cash"></p-radioButton>
+                                <label for="cash" class="ml-2 w-full py-2 cursor-pointer">Payment on delivery
+                                  <span class="absolute right-0">
+                                    <i class="payment-icon payment-icon--cash pi pi-money-bill"></i>
+                                  </span>
+                              </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <p-message *ngIf="payment=='CASH'" severity="info" text="Bạn chỉ phải thanh toán khi nhận được hàng" styleClass="mt-1 py-4 w-full"></p-message>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-4">
+        <div class="sidebar grid px-3">
+            <div class="w-full sidebar__title">
+                <h4>Orders (3 items)</h4>
+            </div>
+            <div class="col-12">
+                <ul class="product-list max-h-11rem overflow-y-scroll">
+                    <li class="product-item flex align-items-center justify-content-between ">
+                        <span class="relative img-wrapper">
+                          <img  src="https://bizweb.sapocdn.net/thumb/thumb/100/369/010/products/3-7e0e1d20-b2be-4083-8d59-52c6d96a6547.jpg?v=1657986742137" alt="">
+                        <small class="quantity">99</small>
+                        </span>
+                        <div>
+                            <p>DC x OP Luffy Attack T-shirt - White</p>
+                            <span>Size: M</span>
+                        </div>
+                        <span>420.000đ</span>
+                    </li>
+                    <li class="product-item flex align-items-center justify-content-between ">
+                        <span class="relative img-wrapper">
+                        <img  src="https://bizweb.sapocdn.net/thumb/thumb/100/369/010/products/3-7e0e1d20-b2be-4083-8d59-52c6d96a6547.jpg?v=1657986742137" alt="">
+                        <small class="quantity">99</small>
+                      </span>
+                        <div>
+                            <p>DC x OP Luffy Attack T-shirt - White</p>
+                            <span>Size: M</span>
+                        </div>
+                        <span>420.000đ</span>
+                    </li>
+                    <li class="product-item flex align-items-center justify-content-between ">
+                        <span class="relative img-wrapper">
+                      <img  src="https://bizweb.sapocdn.net/thumb/thumb/100/369/010/products/3-7e0e1d20-b2be-4083-8d59-52c6d96a6547.jpg?v=1657986742137" alt="">
+                      <small class="quantity">99</small>
+                    </span>
+                        <div>
+                            <p>DC x OP Luffy Attack T-shirt - White</p>
+                            <span>Size: M</span>
+                        </div>
+                        <span>420.000đ</span>
+                    </li>
+                    <li class="product-item flex align-items-center justify-content-between ">
+                        <span class="relative img-wrapper">
+                          <img  src="https://bizweb.sapocdn.net/thumb/thumb/100/369/010/products/3-7e0e1d20-b2be-4083-8d59-52c6d96a6547.jpg?v=1657986742137" alt="">
+                          <small class="quantity">99</small>
+                        </span>
+                        <div>
+                            <p>DC x OP Luffy Attack T-shirt - White</p>
+                            <span>Size: M</span>
+                        </div>
+                        <span>420.000đ</span>
+                    </li>
+                </ul>
+                <div class="voucher-wrapper">
+                    <div class="flex justify-content-between">
+                        <input class="input-custom flex-grow-1" type="text" [(ngModel)]="voucherInput" pInputText placeholder="Voucher" />
+                        <button pButton pRipple type="button" (click)="onCheckVoucher()" [disabled]="!voucherInput" class="ml-2 px-3" [loading]="isLoading" label="Apply"></button>
+                    </div>
+                    <div *ngIf="vouchers" class="voucher-list py-2">
+                        <button (click)="onRemoveVoucher(v)" *ngFor="let v of vouchers" pButton pRipple type="button" [label]="v" icon="pi pi-times" class="p-button-outlined mr-1"></button>
+                        <p-toast></p-toast>
+                    </div>
+                </div>
+                <div class="fee-wrapper py-2">
+                    <div class="flex justify-content-between pt-2">
+                        <span>Tạm tính:</span>
+                        <span>400000</span>
+                    </div>
+                    <div class="flex justify-content-between pt-2">
+                        <span>Phí vận chuyển:</span>
+                        <span>{{30000|currency:'VND'}}</span>
+                    </div>
+                </div>
+                <div class="total-wrapper py-3">
+                    <div class="flex justify-content-between">
+                        <span>Tổng cộng:</span>
+                        <span class="total-value">85400đ</span>
+                    </div>
+                </div>
+                <div class="btn-action flex justify-content-between">
+                    <a routerLink="/cart" class="flex align-items-center back-cart">
+                        <i class="pi pi-angle-left back-icon"></i>
+                        <span>Quay về giỏ hàng</span>
+                    </a>
+                    <a pButton pRipple type="button" class="btn-checkout" label="Checkout"></a>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 </div>
