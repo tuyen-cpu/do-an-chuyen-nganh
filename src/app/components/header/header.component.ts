@@ -31,10 +31,11 @@ export class HeaderComponent implements OnInit {
                 routerLink: 'product',
             },
             {
-                label: 'Cart',
-                icon: 'pi pi-shopping-cart',
-                routerLink: 'cart',
+                label: 'Admin',
+                routerLink: 'admin',
             },
+            { label: 'Cart', icon: 'pi pi-shopping-cart', routerLink: 'cart' },
+
             {
                 label: 'Checkout',
                 icon: 'pi pi-credit-card',
