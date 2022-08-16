@@ -20,8 +20,8 @@ export const APP_ROUTES: Routes = [
         providers: [ProvincesApiService],
     },
     {
-        title: 'adminpage',
-        path: 'admin',
-        loadChildren: () => import(`./components/admin/admin-routing`).then(({ AdminRoutes }) => AdminRoutes),
+        path: 'auth',
+        loadComponent: () => import(`./components/auth/authentication.component`).then((c) => c.AuthenticationComponent),
     },
+    { title: 'adminpage', path: 'admin', loadChildren: () => import(`./components/admin/admin-routing`).then(({ AdminRoutes }) => AdminRoutes) },
 ];

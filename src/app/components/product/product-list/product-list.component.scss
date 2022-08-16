@@ -1,0 +1,36 @@
+@import "../../../../scss/utils/variable";
+
+.product__list {
+    max-width: 1296px;
+}
+
+// item
+.product {
+    &__name {
+        max-width: 12rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        border-bottom: 1px solid transparent;
+        transition: 0.2s;
+        font-weight: $font-bold;
+        font-family: $font-family;
+        color: $text-color;
+    }
+
+    &__item:hover{
+        .product__name{
+            border-bottom: 1px solid black;
+        }
+    }
+
+    &__tag{
+        background-color: $color-main;
+        color: $text-color-white;
+        padding: 0.25rem 0.5rem;
+        font-size: $text-tiny;
+        margin: 0;
+        margin-right: 0.5rem;
+    }
+}
