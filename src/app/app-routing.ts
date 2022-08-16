@@ -19,4 +19,8 @@ export const APP_ROUTES: Routes = [
         loadComponent: () => import(`./components/checkout/checkout.component`).then((c) => c.CheckoutComponent),
         providers: [ProvincesApiService],
     },
+    {
+        path: 'auth',
+        loadComponent: () => import(`./components/auth/authentication.component`).then((c) => c.AuthenticationComponent),
+    },
 ];

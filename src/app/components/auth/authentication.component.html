@@ -1,0 +1,97 @@
+<div class="auth__wrapper mt-6">
+    <form class="sign sign__in" [formGroup]="signInForm" (ngSubmit)="onSignIn()">
+        <p class="sign__name">Đăng nhập</p>
+
+        <div class="mb-3">
+            <span class="p-input-icon-left">
+                <i class="pi pi-envelope"></i>
+                <input type="text" pInputText placeholder="Email" class="input" formControlName="email" />
+            </span>
+            <div *ngIf="signInEmail.invalid && signInEmail.dirty && signInEmail.touched">
+                <small class="p-error message-error" [hidden]="!signInEmail.errors.required"> Email is required. </small>
+                <small class="p-error message-error" [hidden]="!signInEmail.errors.email"> Email is invalid. </small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <span class="p-input-icon-left">
+                <i class="pi pi-lock"></i>
+                <input type="text" pInputText placeholder="Password" class="input" formControlName="password" />
+            </span>
+        </div>
+
+        <button class="mb-3 sign__button">Đăng nhập</button>
+
+        <a class="mb-3 sign__forgot">Quên mật khẩu ?</a>
+    </form>
+
+    <form class="sign sign__up" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+        <p class="sign__name">Đăng ký</p>
+
+        <div class="mb-3">
+            <span class="p-input-icon-left">
+                <i class="pi pi-user"></i>
+                <input type="text" pInputText placeholder="Tên" class="input" formControlName="name" />
+            </span>
+            <div *ngIf="name.invalid && name.dirty && name.touched">
+                <small class="p-error message-error" [hidden]="!name.errors.required"> Name is required. </small>
+                <small class="p-error message-error" [hidden]="!name.errors.minlength"> Name is invalid. </small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <span class="p-input-icon-left">
+                <i class="pi pi-lock"></i>
+                <input type="tel" pInputText placeholder="Số điện thoại" class="input" formControlName="phoneNum" />
+            </span>
+
+            <div *ngIf="phoneNum.invalid && phoneNum.dirty && phoneNum.touched">
+                <small class="p-error message-error" [hidden]="!phoneNum.errors.required"> Phone is required. </small>
+                <small class="p-error message-error" [hidden]="!phoneNum.errors.pattern"> Phone is invalid. </small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <span class="p-input-icon-left">
+                <i class="pi pi-envelope"></i>
+                <input type="text" pInputText placeholder="Email" class="input" formControlName="email" />
+            </span>
+            <div *ngIf="signUpEmail.invalid && signUpEmail.dirty && signUpEmail.touched">
+                <small class="p-error message-error" [hidden]="!signUpEmail.errors.required"> Name is required. </small>
+                <small class="p-error message-error" [hidden]="!signUpEmail.errors.minlength"> Name is invalid. </small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <span class="p-input-icon-left">
+                <i class="pi pi-lock"></i>
+                <input type="password" pInputText placeholder="Mật khẩu" class="input" formControlName="password" />
+            </span>
+            <div *ngIf="signUpPassword.invalid && signUpPassword.dirty && signUpPassword.touched">
+                <small class="p-error message-error" [hidden]="!signUpPassword.errors.required"> Password is required. </small>
+                <small class="p-error message-error" [hidden]="!signUpPassword.errors.pattern || !signUpPassword.errors.minlength">
+                    Password has an one of a-z, A-Z, 0-9 and up to 10 char.
+                </small>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <span class="p-input-icon-left">
+                <i class="pi pi-lock"></i>
+                <input
+                    type="password"
+                    pInputText
+                    placeholder="Xác nhận mật khẩu"
+                    class="input"
+                    formControlName="confirmPassword"
+                    pattern="{{ signUpPassword.value }}" />
+            </span>
+            <div *ngIf="confirmPassword.invalid && confirmPassword.dirty && confirmPassword.touched">
+                <small class="p-error message-error" [hidden]="!confirmPassword.errors.required"> Password is required. </small>
+                <small class="p-error message-error" [hidden]="!confirmPassword.errors.pattern"> Not match password. </small>
+            </div>
+        </div>
+
+        <button class="mb-3 sign__button">Đăng ký</button>
+    </form>
+</div>
