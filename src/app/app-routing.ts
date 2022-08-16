@@ -17,4 +17,8 @@ export const APP_ROUTES: Routes = [
         path: 'checkout',
         loadComponent: () => import(`./components/checkout/checkout.component`).then((c) => c.CheckoutComponent),
     },
+    {
+        path: 'auth',
+        loadComponent: () => import(`./components/auth/authentication.component`).then((c) => c.AuthenticationComponent),
+    },
 ];

@@ -40,6 +40,11 @@ export class HeaderComponent implements OnInit {
                 icon: 'pi pi-credit-card',
                 routerLink: 'checkout',
             },
+            {
+                label: 'Authentication',
+                icon: 'pi pi-user',
+                routerLink: 'auth',
+            },
         ];
     }
 }
