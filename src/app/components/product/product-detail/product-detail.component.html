@@ -1,1 +1,46 @@
-<p>product-detail works!</p>
+<div class="grid grid-nogutter">
+    <div class="col-6 col-offset-1">
+        <p-galleria [(value)]="images" [circular]="true" [autoPlay]="true" [transitionInterval]="3000" [numVisible]="7">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.previewImageSrc" style="width: 100%" />
+            </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="item.thumbnailImageSrc" />
+                </div>
+            </ng-template>
+        </p-galleria>
+    </div>
+    <div class="col-4">
+        <div class="desc flex flex-column align-items-center">
+            <h3 class="desc-title">DC x OP Luffy Attack T-shirt - White</h3>
+            <p class="desc-price">420.000₫</p>
+            <p-selectButton
+                [options]="sizes"
+                [(ngModel)]="selectedSize"
+                optionLabel="name"
+                styleClass="desc-sizes"
+                (onChange)="onSelectedSize($event)"></p-selectButton>
+            <div class="desc-btn">
+                <button pButton pRipple type="button" label="Thêm vào giỏ hàng" class="p-button-outlined p-button-secondary"></button>
+            </div>
+            <div class="desc-btn">
+                <button pButton pRipple type="button" label="Mua ngay" class="p-button-raised p-button-secondary desc-btn-buy"></button>
+            </div>
+            <img
+                src="//bizweb.sapocdn.net/100/369/010/files/dc-x-op-collaboration-logo-cdaee4ba-8f7c-4519-9c0e-5b5c92194829.png?v=1657856831427"
+                alt=""
+                width="300"
+                class="" />
+            <ul class="desc-list">
+                <strong>Chi tiết sản phẩm:</strong>
+                <li class="desc-item">Chất liệu : Cotton</li>
+                <li class="desc-item">Regular Fit.</li>
+                <li class="desc-item">Bo cổ 2 chiều.</li>
+                <li class="desc-item">Hình in mặt trước và mặt sau áo áp dụng công nghệ in kéo lụa thủ công.</li>
+                <strong>Size chart</strong>
+            </ul>
+            <img src="//bizweb.sapocdn.net/100/369/010/files/size-chart-t-shirt-regular-fit-new.png?v=1655193337060" alt="" class="w-full" />
+        </div>
+    </div>
+</div>

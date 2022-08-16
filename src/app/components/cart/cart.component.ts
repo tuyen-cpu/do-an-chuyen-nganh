@@ -6,9 +6,10 @@ import { CartService } from './../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { FormsModule } from '@angular/forms';
 @Component({
     standalone: true,
-    imports: [CommonModule, RouterModule, TableModule, ButtonModule, InputNumberModule],
+    imports: [CommonModule, FormsModule, RouterModule, TableModule, ButtonModule, InputNumberModule],
     providers: [CartService],
     selector: 'app-cart',
     templateUrl: './cart.component.html',
@@ -18,11 +19,12 @@ import { InputNumberModule } from 'primeng/inputnumber';
 export class CartComponent implements OnInit {
     products: Product[];
     total: number;
+
     constructor(private cartService: CartService) {}
 
     ngOnInit(): void {
         this.products = [
-            { id: 1, name: 'DC x OP Luffy Attack T-shirt - White', size: 'S', quantity: 10, price: 120000 },
+            { id: 1, name: 'DC x OP Luffy Attack T-shirt - White', size: 'S', quantity: 1, price: 120000 },
             { id: 2, name: 'DC x OP Luffy Attack T-shirt - White', size: 'M', quantity: 2, price: 130000 },
             { id: 3, name: 'DC x OP Brook T-shirt - Black', size: 'XL', quantity: 10, price: 100000 },
             { id: 4, name: 'DC x OP Brook T-shirt - White', size: 'S', quantity: 10, price: 140000 },
@@ -35,6 +37,8 @@ export class CartComponent implements OnInit {
     deleteItem(id: number) {
         this.products = this.products.filter((product) => product.id !== id);
         this.getTotal();
-        console.log(this.products);
+    }
+    changeQuantity() {
+        this.getTotal();
     }
 }

@@ -14,6 +14,25 @@
     .image-product {
         width: 150px;
     }
+    .p-inputtext:enabled:focus {
+        box-shadow: none;
+        border-color: unset;
+    }
+    .p-inputnumber-button {
+        &:hover {
+            background-color: #000000;
+            border-color: #000000;
+        }
+        background-color: #000000;
+        border-color: #000000;
+    }
+    .quantity-product {
+        width: 60%;
+        input {
+            width: 60%;
+            text-align: center;
+        }
+    }
     .table-total {
         .p-datatable-header {
             background-color: #fff;
