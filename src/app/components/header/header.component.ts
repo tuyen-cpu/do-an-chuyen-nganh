@@ -29,6 +29,11 @@ export class HeaderComponent implements OnInit {
 
                 routerLink: 'product',
             },
+            {
+                label: 'Admin',
+
+                routerLink: 'admin',
+            },
         ];
     }
     onSearch() {

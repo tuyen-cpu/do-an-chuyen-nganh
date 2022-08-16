@@ -19,4 +19,9 @@ export const APP_ROUTES: Routes = [
         loadComponent: () => import(`./components/checkout/checkout.component`).then((c) => c.CheckoutComponent),
         providers: [ProvincesApiService],
     },
+    {
+        title: 'adminpage',
+        path: 'admin',
+        loadChildren: () => import(`./components/admin/admin-routing`).then(({ AdminRoutes }) => AdminRoutes),
+    },
 ];
